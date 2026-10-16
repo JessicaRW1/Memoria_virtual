@@ -73,6 +73,10 @@ SANTOS, Douglas; MAZIERO, Carlos Alberto. **Avaliação do comportamento de sist
 
 MAZIERO, Carlos Alberto. **Sistemas operacionais: conceitos e mecanismos**. Curitiba: Editora da UFPR, 2019. Acesso em: 15 out. 2026.
 
+CARVALHO, André. **10.1 – TLB: Translation Lookaside Buffer [SO UFAM]**. YouTube, 20 out. 2020. 1 vídeo. Acesso em: 15 out. 2026.
+
+PIZZA DE DADOS. **Episódio 025: Banco de Dados**. 20 set. 2019. Podcast, 49 min. Acesso em: 15 out. 2026.
+
 
 
 
