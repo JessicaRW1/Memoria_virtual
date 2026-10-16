@@ -23,3 +23,27 @@ Isso ajuda a explicar por que o disco do servidor chega a 100% de utilização e
 Quando um processo fica aguardando uma operação de paginação, o Sistema Operacional pode colocar outro processo para executar. Porém, se vários deles também precisarem de páginas que não estão na RAM, eles acabam entrando no mesmo ciclo de espera. Com isso, aumentam as trocas entre processos, mas pouco trabalho útil é realizado pela CPU.
 
 No caso da TechBuy, portanto, o principal gargalo não está no processamento das regras de negócio, mas na movimentação excessiva de páginas entre a memória RAM e o disco.
+
+## Parte B – O Papel e a Eficiência da TLB
+
+### Funcionamento da TLB
+
+A **TLB (Translation Lookaside Buffer)** funciona como uma pequena memória de alta velocidade utilizada para guardar traduções recentes entre endereços virtuais e endereços físicos.
+
+Quando um programa utiliza um endereço virtual, esse endereço precisa ser traduzido para descobrir em qual região da memória física está o dado correspondente. Sem a TLB, seria necessário consultar constantemente a tabela de páginas armazenada na memória.
+
+A TLB mantém algumas dessas traduções mais utilizadas próximas da MMU. Quando a tradução procurada está nela, o acesso é mais rápido e é chamado de **TLB hit**.
+
+Ela é implementada em hardware junto à MMU porque a tradução de endereços acontece o tempo todo durante a execução dos programas. Se fosse necessário realizar uma consulta comum à memória RAM para cada tradução, seriam necessários acessos extras à memória e o desempenho seria prejudicado.
+
+### TLB Miss e troca de contexto
+
+Um **TLB miss** ocorre quando a tradução procurada não está armazenada na TLB. Nesse caso, é necessário consultar a tabela de páginas para encontrar a informação correspondente, o que aumenta o tempo necessário para acessar a memória.
+
+É importante diferenciar um TLB miss de um Page Fault. Um TLB miss não significa necessariamente que a página está fora da RAM. A tradução pode apenas não estar registrada naquele momento na TLB. Se a página estiver na memória, a tradução é encontrada na tabela de páginas e pode ser adicionada à TLB. Se a página também não estiver na RAM, então ocorre uma falta de página e será necessário buscá-la no armazenamento secundário.
+
+As trocas de contexto também interferem nesse funcionamento. Cada processo possui seu próprio espaço de endereçamento, então as traduções utilizadas por um processo não podem simplesmente ser usadas pelo próximo.
+
+Em uma situação mais simples, quando o Sistema Operacional troca de processo, as entradas da TLB relacionadas ao processo anterior precisam ser invalidadas. Com isso, o novo processo pode apresentar mais TLB misses nos primeiros acessos, até que a TLB seja preenchida novamente com suas traduções.
+
+Por isso, uma quantidade muito alta de trocas de contexto também pode aumentar o custo de acesso à memória e contribuir para a queda de desempenho do servidor.
