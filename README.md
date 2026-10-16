@@ -62,8 +62,8 @@ Isso não significa que os Page Faults deixarão de existir completamente. Eles 
 
 No entanto, se a causa do Thrashing no servidor realmente for a falta de memória física, aumentar a quantidade de RAM permite manter uma parte maior do conjunto de páginas utilizadas pelos processos na memória principal. Nesse cenário, a tendência é reduzir bastante a paginação excessiva e, consequentemente, o uso do disco.
 
-### Instrumento Visual de Síntese
-## Mapa Mental
+## Instrumento Visual de Síntese
+### Mapa Mental
 
 <img width="760" height="527" alt="image" src="https://github.com/user-attachments/assets/289fdd28-5f16-4d97-b509-7cf30f2ea23f" />
 
