@@ -67,5 +67,13 @@ No entanto, se a causa do Thrashing no servidor realmente for a falta de memóri
 
 <img width="760" height="527" alt="image" src="https://github.com/user-attachments/assets/289fdd28-5f16-4d97-b509-7cf30f2ea23f" />
 
+## Referências
+
+SANTOS, Douglas; MAZIERO, Carlos Alberto. **Avaliação do comportamento de sistemas operacionais de mercado em situação de thrashing**. In: WORKSHOP DE SISTEMAS OPERACIONAIS DA SBC, 6., 2009. Anais [...]. Sociedade Brasileira de Computação, 2009. p. 2343-2354. Acesso em: 15 out. 2026.
+
+MAZIERO, Carlos Alberto. **Sistemas operacionais: conceitos e mecanismos**. Curitiba: Editora da UFPR, 2019. Acesso em: 15 out. 2026.
+
+
+
 
 
